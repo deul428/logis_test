@@ -148,7 +148,7 @@ body {
 /* === sm (>=380px) 모바일 === */
 @media (min-width: 320px) and (max-width: 959px) {
   body {
-    /* overflow: auto; */
+    overflow: auto;
     background: white;
     justify-content: flex-start;
   }
