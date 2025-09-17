@@ -185,7 +185,7 @@ body {
   #input_area form {
   }
   #input_area form textarea {
-    height: 100px;
+    height: 30dvh;
     overflow-y: auto;
   }
   #input_area form button {
@@ -230,13 +230,13 @@ body {
 /* === sm (>=380px) 모바일 === */
 @media (min-width: 375px) and (max-width: 767px) {
   textarea {
-    height: 150px !important;
+    height: 30dvh !important;
   }
 }
 /* === md (>=768px) 태블릿 === */
 @media (min-width: 768px) and (max-width: 959px) {
   textarea {
-    height: 150px !important;
+    height: 25dvh !important;
   }
 }
 
@@ -251,7 +251,7 @@ body {
   }
   textarea {
     height: auto;
-    max-height: 15dvh !important;
+    max-height: 20dvh !important;
   }
   #input_area button {
     font-size: 1rem !important;
