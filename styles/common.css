@@ -29,6 +29,22 @@ body {
   display: flex;
   align-items: center;
 }
+.wrap button {
+  all: unset;
+  padding: 0.7rem 1rem;
+  width: calc(100% - 2rem);
+  text-align: center;
+  font-size: 1rem;
+  border-radius: 12px;
+  transition: background 0.3s linear;
+  cursor: pointer;
+  background: #5278e7;
+  color: white;
+}
+.wrap button:hover {
+  background: #466de2;
+}
+
 .cntnt_box {
   width: 100%;
   height: 100%;
@@ -37,11 +53,51 @@ body {
   align-items: center;
   flex-direction: column;
 }
+
+/* === 스크롤바 전체 영역 === */
+.cntnt_box::-webkit-scrollbar { 
+}
+
+/* === 스크롤바 트랙(배경) === */
+.cntnt_box::-webkit-scrollbar-track {
+  background: #f1f3f5;
+  border-radius: 10px;
+}
+
+/* === 스크롤바 막대 === */
+.cntnt_box::-webkit-scrollbar-thumb {
+  background: #40c057;
+  border-radius: 10px;
+  margin-right: -5px;
+}
+
+/* === 스크롤바 막대 hover 시 === */
+.cntnt_box::-webkit-scrollbar-thumb:hover {
+  background: #37b24d;
+}
+
+#result_area {
+  margin: -1rem 0 2rem;
+  text-align: center;
+}
+#result_area h2 {
+  margin: 0;
+  font-size: 1.1rem;
+}
+#result_area div#submittedData {
+  font-size: 0.9rem;
+  text-align: left;
+  margin-bottom: 1rem;
+}
+#result_area a {
+  text-decoration: none;
+  color: #5278e7;
+}
 #header {
   text-align: center;
 }
 
-#header h2 {
+h2 {
   margin: 0 0 0.2rem;
   font-size: 16px;
 }
@@ -66,15 +122,21 @@ body {
   margin-bottom: 0.5rem;
   width: calc(100% - 1rem - 4px);
   padding: 0.5rem;
+  outline: none;
   border: none;
   border-radius: 12px;
   box-shadow: 0 0 2px 0 #000;
+  transition: all 0.3s linear;
+}
+
+#input_area form > textarea:focus,
+#input_area form > textarea:active {
+  box-shadow: 0 0 2px 0 #133089;
 }
 #input_area label {
 }
 #input_area button {
   background: #5278e7;
-  padding: 0.7rem 1rem;
   color: #fff;
 }
 #input_area button:hover {
@@ -98,6 +160,7 @@ body {
   margin: 0 auto;
   display: inline-block;
   background: #eee;
+  color: #000;
 }
 #desc_area > div:first-child {
   margin-right: 0.25rem;
@@ -134,19 +197,6 @@ body {
 #desc_area div .desc_box p {
   margin: 0;
 }
-.wrap button {
-  z-index: 999;
-  all: unset;
-  width: calc(100% - 2rem);
-  font-style: 800;
-  text-align: center;
-  font-size: 1.2rem;
-  padding: 1rem;
-  border-radius: 12px;
-  transition: background 0.3s linear;
-  cursor: pointer;
-}
-
 /* === xsm (>=320px) 초소형 모바일 === */
 @media (max-width: 319px) {
   /* 320px 미만은 거의 없음 → 안전용 */
@@ -167,7 +217,7 @@ body {
     box-shadow: none;
   }
   .cntnt_box {
-    overflow-y: auto;
+    /* overflow-y: auto; */
     height: fit-content;
     width: calc(100% - 1rem);
     margin: 0 0.5rem;
@@ -290,7 +340,7 @@ body {
 }
 
 /* === xxl (>=1600px) 와이드 === */
-@media (min-width: 1600px) and (max-width: 1919px) {
+@media (min-width: 1600px) and (max-width: 1920px) {
   .wrap {
     width: 40%;
   }
@@ -301,7 +351,7 @@ body {
 }
 
 /* === xxxl (>=1920px) 울트라 와이드 === */
-@media (min-width: 1920px) {
+@media (min-width: 1921px) {
   .wrap {
     /* width: 30%; */
   }

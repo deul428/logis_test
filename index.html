@@ -1,10 +1,11 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <html lang="ko">
   <head>
     <meta charset="UTF-8" />
     <title>로지스 유통 견적 문의</title>
     <link rel="stylesheet" href="./styles/common.css" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0" /> -->
+    <meta name="viewport" content="width=device-width,initial-scale=1, maximum-scale=1.0, user-scalable=no">
   </head>
   <body>
     <div class="wrap">
@@ -15,10 +16,7 @@
         </div>
 
         <div id="input_area">
-          <form
-            action="https://docs.google.com/forms/d/e/1FAIpQLSctYhlQvrIz8v9g041upLmtKANxDG6vHa8Y23l9VD59j1U1fg/formResponse"
-            method="post"
-          >
+          <form id="customForm">
             <!-- <label>메시지:</label><br /> -->
             <!-- name="message" -->
             <textarea
@@ -36,6 +34,64 @@
             <button type="submit">문의 요청</button>
           </form>
         </div>
+        <div id="result_area" style="display: none">
+          <h2>접수 완료</h2>
+          <div id="submittedData"></div>
+          <button href="#" id="newResponseLink">신규 접수하기</button>
+        </div>
+        <script>
+          document
+            .getElementById("customForm")
+            .addEventListener("submit", async function (e) {
+              e.preventDefault();
+
+              const formData = new FormData(this);
+              const values = Object.fromEntries(formData.entries()); // 제출 값 보관
+
+              try {
+                await fetch(
+                  "https://docs.google.com/forms/d/e/1FAIpQLSctYhlQvrIz8v9g041upLmtKANxDG6vHa8Y23l9VD59j1U1fg/formResponse",
+                  {
+                    method: "POST",
+                    body: formData,
+                    mode: "no-cors",
+                  }
+                );
+
+                // ✅ 입력 폼 + 가이드 영역 숨기기
+                this.style.display = "none";
+                document.getElementById("desc_area").style.display = "none";
+
+                // 제출 데이터 화면에 표시
+                const submittedDiv = document.getElementById("submittedData");
+                submittedDiv.innerHTML = `
+        <p>견적 문의 내용: ${values["entry.1271596132"]}</p> 
+      `;
+
+                // 결과 영역 표시
+                document.getElementById("result_area").style.display = "block";
+
+                // "다른 응답 제출하기" 클릭 시 → 다시 폼 & 가이드 표시
+                document
+                  .getElementById("newResponseLink")
+                  .addEventListener("click", (ev) => {
+                    ev.preventDefault();
+                    document.getElementById("customForm").reset();
+                    document.getElementById("customForm").style.display =
+                      "block";
+                    document.getElementById("desc_area").style.display = "flex"; // 가이드 복원
+                    document.getElementById("result_area").style.display =
+                      "none";
+                  });
+              } catch (err) {
+                alert(
+                  "오류가 발생했습니다. 관리자에게 문의해 주세요.\nError: " +
+                    err
+                );
+              }
+            });
+        </script>
+
         <div id="desc_area">
           <div>
             <button
@@ -52,12 +108,18 @@
                 </p>
 
                 <p>
-                  1. 상품&#58; &#91;상품명&#93; &#47; 규격&#58; &#91;상품의 규격&#93; &#47; 사용량&#58; &#91;월 예상
-                  사용량&#93; &#47; 사용금액&#58; &#91;월 예상 사용금액&#93; &#47; 인쇄&#58; &#91;O&#47;X&#93;<br />
-                  2. 상품&#58; &#91;상품명&#93; &#47; 규격&#58; &#91;상품의 규격&#93; &#47; 사용량&#58; &#91;월 예상
-                  사용량&#93; &#47; 사용금액&#58; &#91;월 예상 사용금액&#93; &#47; 인쇄&#58; &#91;O&#47;X&#93;<br />
-                  3. 상품&#58; &#91;상품명&#93; &#47; 규격&#58; &#91;상품의 규격&#93; &#47; 사용량&#58; &#91;월 예상
-                  사용량&#93; &#47; 사용금액&#58; &#91;월 예상 사용금액&#93; &#47; 인쇄&#58; &#91;O&#47;X&#93;
+                  1. 상품&#58; &#91;상품명&#93; &#47; 규격&#58; &#91;상품의
+                  규격&#93; &#47; 사용량&#58; &#91;월 예상 사용량&#93; &#47;
+                  사용금액&#58; &#91;월 예상 사용금액&#93; &#47; 인쇄&#58;
+                  &#91;O&#47;X&#93;<br />
+                  2. 상품&#58; &#91;상품명&#93; &#47; 규격&#58; &#91;상품의
+                  규격&#93; &#47; 사용량&#58; &#91;월 예상 사용량&#93; &#47;
+                  사용금액&#58; &#91;월 예상 사용금액&#93; &#47; 인쇄&#58;
+                  &#91;O&#47;X&#93;<br />
+                  3. 상품&#58; &#91;상품명&#93; &#47; 규격&#58; &#91;상품의
+                  규격&#93; &#47; 사용량&#58; &#91;월 예상 사용량&#93; &#47;
+                  사용금액&#58; &#91;월 예상 사용금액&#93; &#47; 인쇄&#58;
+                  &#91;O&#47;X&#93;
                 </p>
 
                 <p>요청사항&#58; &#91;납기, 샘플 등 요청사항&#93;</p>
@@ -78,8 +140,8 @@
                   - 상품/규격별 정보는 반드시 1., 2., 3. 번호를 붙여
                   구분합니다.<br />
                   2. 상품명 표기<br />
-                  - 동일 상품 + 여러 규격 → 상품&#58;은 한 번만 쓰고, 아래에 규격을
-                  나열해도 가능<br />
+                  - 동일 상품 + 여러 규격 → 상품&#58;은 한 번만 쓰고, 아래에
+                  규격을 나열해도 가능<br />
                   - 서로 다른 상품 → 각 번호마다 반드시 개별 상품&#58;을 함께
                   작성<br />
                   3. 필수/선택 항목<br />
