@@ -65,8 +65,8 @@ body {
 #input_area label {
 }
 #input_area button {
-  background: #40c057;
-  padding: 1rem;
+  background: #40c057; 
+  padding: 0.5rem;
   color: #fff;
 }
 #input_area button:hover {
