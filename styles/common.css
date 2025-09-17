@@ -109,12 +109,12 @@ body {
 
 #desc_area > div .desc_box {
   /* height: 200px; */
-  /* overflow-y: auto; */ 
+  overflow-y: hidden; 
   font-size: 0.75rem;
   line-height: 1.4rem;
   display: flex;
   flex-direction: column;
-  max-height: 0;
+  max-height: 0 ; 
   opacity: 0;
   transition: max-height 0.3s linear; /* , opacity 0.3s linear; */
   background: #f9f9f9;
@@ -126,7 +126,7 @@ body {
 
 #desc_area .desc_box.open { 
   opacity: 1;
-  max-height: 1000px !important;
+  max-height: fit-content;
 }
 
 #desc_area div .desc_box p {
