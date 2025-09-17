@@ -16,12 +16,12 @@ body {
   background: #eee;
   flex-direction: column;
   margin: 0;
-}
-.wrap {
-  /* height: 60%; */
   display: inline-flex;
   justify-content: center;
   align-items: center;
+}
+.wrap {
+  /* height: 60%; */
   padding: 2rem;
   background: white;
   border-radius: 12px;
