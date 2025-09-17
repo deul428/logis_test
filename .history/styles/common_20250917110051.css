@@ -1,11 +1,7 @@
-@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.8/dist/web/variable/pretendardvariable.css");
-
+@import url("https://fonts.googleapis.com/css2?family=Chiron+GoRound+TC:wght@200..900&family=Nanum+Pen+Script&display=swap");
 html,
 body {
-  font-family: "Pretendard Variable", Pretendard, -apple-system,
-    BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI",
-    "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji",
-    "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+  font-family: "Chiron GoRound TC", sans-serif;
   font-optical-sizing: auto;
   font-weight: 400;
   font-style: normal;
@@ -69,7 +65,7 @@ body {
 #input_area label {
 }
 #input_area button {
-  background: #5278e7;
+  background: #5278E7;
   padding: 1rem;
   color: #fff;
 }
@@ -94,6 +90,7 @@ body {
   font-size: 0.8rem;
   margin: 0 auto;
   display: inline-block;
+  color: balcite;
   background: #eee;
 }
 #desc_area > div:first-child {
