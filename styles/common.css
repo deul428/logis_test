@@ -14,14 +14,14 @@ body {
   height: 100dvh;
   overflow: hidden;
   background: #eee;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   flex-direction: column;
   margin: 0;
 }
 .wrap {
   /* height: 60%; */
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
   padding: 2rem;
   background: white;
   border-radius: 12px;
@@ -82,7 +82,6 @@ body {
   width: 100%;
   height: 30dvh;
   overflow-y: auto;
-  margin-bottom: 24px;
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
@@ -155,9 +154,9 @@ body {
 @media (min-width: 320px) and (max-width: 959px) {
   body {
     background: white;
-    justify-content: flex-start;
   }
   .wrap {
+    /* justify-content: flex-start; */
     overflow: auto;
     padding: 0;
     height: 100%;
@@ -211,6 +210,9 @@ body {
   }
   #desc_area div .toggle {
     margin: 0 0 0.5rem;
+  }
+  #desc_area div .toggle_02 {
+    margin-bottom: 0;
   }
   #desc_area div .desc_box {
     width: calc(100% - 1rem - 2px);
