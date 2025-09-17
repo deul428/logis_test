@@ -159,7 +159,7 @@ body {
     /* justify-content: flex-start; */
     overflow: auto;
     padding: 0;
-    height: 100%;
+    height: calc(100% - 2rem);
     width: calc(100% - 2rem);
     padding: 1rem;
     box-shadow: none;
