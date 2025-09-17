@@ -154,12 +154,12 @@ body {
 
 /* === sm (>=380px) 모바일 === */
 @media (min-width: 320px) and (max-width: 959px) {
-  body {
-    /* overflow: auto; */
+  body { 
     background: white;
     justify-content: flex-start;
   }
   .wrap {
+    overflow: auto;
     padding: 0;
     height: 100%;
     width: calc(100% - 2rem);
@@ -167,6 +167,8 @@ body {
     box-shadow: none;
   }
   .cntnt_box {
+    overflow-y: auto;
+    height: fit-content;
     width: calc(100% - 1rem);
     margin: 0 0.5rem;
     justify-content: center;
@@ -193,6 +195,7 @@ body {
   }
   #desc_area {
     width: 100%;
+    overflow: unset;
     height: auto;
     flex-direction: column;
     font-size: 0.7rem;
