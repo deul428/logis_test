@@ -178,8 +178,9 @@ body {
     height: 100px;
     overflow-y: auto;
   }
-  #input_area form button {
+  #input_area form button.toggle {
     margin: 0;
+    margin-bottom: 1rem;
   }
   #desc_area {
     width: 100%;
@@ -187,12 +188,7 @@ body {
     flex-direction: column;
     font-size: 0.7rem;
   }
-  #desc_area > div:first-child {
-    margin: 0;
-  }
-  #desc_area > div:last-child {
-    margin: 0;
-  }
+
   #desc_area > div {
     margin: 0 0 1rem;
     width: 100%;
