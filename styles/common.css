@@ -39,14 +39,15 @@ body {
   text-align: center;
 }
 
-#header .ci {
-  width: 100%;
-  max-width: 150px;
-}
 
 #header h2 {
-  margin: 0 0 1rem;
-  font-size: 1.2rem;
+  margin: 0 0 0.2rem;
+  font-size: 16px;
+}
+#header .ci {
+  width: 100%;
+  max-width: 200px;
+  margin-bottom: 0.5rem
 }
 
 #input_area {
@@ -173,8 +174,10 @@ body {
   #header {
     width: 70%;
   }
-  #header h2 { 
-    font-size: 1.1rem;
+  #header h2 {
+  }
+  #header .ci {
+    max-width: 240px !important;
   }
   #input_area {
     margin-bottom: 2rem;
@@ -249,7 +252,7 @@ body {
   textarea {
     height: auto;
     max-height: 15dvh !important;
-  } 
+  }
   #input_area button {
     font-size: 1rem !important;
   }
