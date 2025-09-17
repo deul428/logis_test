@@ -58,6 +58,7 @@ body {
   text-align: center;
 }
 #input_area form > textarea {
+  font-size: 0.8rem;
   font-family: inherit;
   margin-bottom: 0.5rem;
   width: calc(100% - 1rem);
