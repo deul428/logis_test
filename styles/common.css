@@ -41,11 +41,12 @@ body {
 
 #header .ci {
   width: 100%;
-  max-width: 250px;
+  max-width: 150px;
 }
 
 #header h2 {
   margin: 0 0 1rem;
+  font-size: 1.2rem;
 }
 
 #input_area {
@@ -71,7 +72,7 @@ body {
 }
 #input_area button {
   background: #5278e7;
-  padding: 1rem;
+  padding: 0.7rem 1rem;
   color: #fff;
 }
 #input_area button:hover {
@@ -172,10 +173,10 @@ body {
   #header {
     width: 70%;
   }
-  #header h2 {
-    font-size: 1.2rem;
+  #header h2 { 
   }
   #input_area {
+    margin-bottom: 2rem;
   }
   #input_area form {
   }
@@ -199,7 +200,7 @@ body {
     margin-left: 0;
   }
   #desc_area > div {
-    margin: 0 0 1rem;
+    margin: 0;
     width: 100%;
   }
   #desc_area div .toggle {
@@ -209,8 +210,12 @@ body {
     width: calc(100% - 1rem - 2px);
     font-size: 0.8rem;
     margin: 0;
-    padding: 0.5rem;
+    padding: 0;
     /* line-height: 1.1rem; */
+  }
+  #desc_area div .desc_box.open {
+    margin-bottom: 1rem;
+    padding: 0.5rem;
   }
   .wrap button {
     font-size: 0.9rem;
@@ -231,7 +236,7 @@ body {
   }
 }
 
-/* === xl (>=1200px) 큰 데스크톱 === */
+/* === xl (>=1200px) 노트북  === */
 @media (min-width: 960px) and (max-width: 1199px) {
   .wrap {
     width: 60%;
@@ -239,6 +244,18 @@ body {
   }
   #header {
     width: 25dvw;
+  }
+  textarea {
+    height: auto;
+    max-height: 15dvh !important;
+  } 
+  #input_area button {
+    font-size: 1rem !important;
+  }
+  #desc_area .toggle {
+  }
+  #desc_area div .desc_box {
+    height: 320px;
   }
 }
 
@@ -258,7 +275,7 @@ body {
   }
   #desc_area div .toggle {
     padding: 0.7rem 0.5rem;
-    width: calc(100% - 1rem); 
+    width: calc(100% - 1rem);
   }
 }
 
